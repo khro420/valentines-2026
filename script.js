@@ -11,8 +11,7 @@ function moveNoButton() {
 }
 
 // Mobile + desktop support
-noBtn.addEventListener("touchstart", moveNoButton);
-noBtn.addEventListener("mouseover", moveNoButton);
+noBtn.addEventListener("click", moveNoButton);
 
 yesBtn.addEventListener("click", () => {
   alert("Good choice 😌💘 Valentine’s secured.");
