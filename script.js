@@ -1,18 +1,24 @@
 const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
 
-function moveNoButton() {
-  const padding = 20;
-  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - padding);
-  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - padding);
+let scale = 1;
 
-  noBtn.style.left = x + "px";
-  noBtn.style.top = y + "px";
+function messWithNo() {
+  if (navigator.vibrate) navigator.vibrate(120);
+
+  scale -= 0.12;
+  if (scale < 0.4) scale = 0.4;
+  noBtn.style.transform = `scale(${scale})`;
+
+  noBtn.textContent = "eh 😳";
 }
 
-// Mobile + desktop support
-noBtn.addEventListener("click", moveNoButton);
+if (noBtn) {
+  noBtn.addEventListener("click", messWithNo);
+}
 
-yesBtn.addEventListener("click", () => {
-  alert("Good choice 😌💘 Valentine’s secured.");
-});
+if (yesBtn) {
+  yesBtn.addEventListener("click", () => {
+    window.location.href = "yes.html";
+  });
+}
