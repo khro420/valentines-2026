@@ -20,8 +20,14 @@ body {
   text-align: center;
   width: 90%;
   max-width: 420px;
+  max-height: 85vh;        /* 🔥 THIS is the magic */
+  overflow-y: auto;       /* 🔥 SCROLL INSIDE CARD */
   box-shadow: 0 30px 60px rgba(0,0,0,0.35);
   animation: pop 0.4s ease;
+}
+
+.card::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari, iOS */
 }
 
 @keyframes pop {
@@ -65,4 +71,33 @@ button {
 #no {
   position: relative;
   transition: transform 0.2s ease;
+}
+
+.progress {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  padding: 6px 4px;
+  font-size: 12px;
+  border-radius: 20px;
+  background: #eee;
+  color: #999;
+  cursor: pointer;
+}
+
+.step.active {
+  background: #ffb6c1;
+  color: #000;
+  font-weight: bold;
+}
+
+.step.done {
+  background: #ffd6e0;
+  color: #555;
 }
