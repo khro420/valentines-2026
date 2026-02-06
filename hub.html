@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Choose 💘</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+    <h1>🤍 Hub 🤍</h1>
+    <p>Visit all first before clicking the last one honeyy</p>
+
+    <div class="grid">
+        <button class="tile" onclick="go('memories.html')">
+            <img src="images/fluffystar2.gif" alt="Us">
+            <br>
+            <span>Us</span>
+        </button>
+
+        <button class="tile" onclick="go('adorable.html')">
+            <img src="images/fluffystar1.gif" alt="Adorable">
+            <br>
+            <span>You</span>
+        </button>
+
+        <button class="tile" onclick="go('chibi.html')">
+            <img src="images/fluffystar3.gif" alt="Chibi">
+            <br>
+            <span>Chibi</span>
+        </button>
+
+        <button class="tile locked" id="inviteBtn" disabled onclick="location.href='valentine.html'">
+            <img src="images/fluffystar4.gif" alt="Locked">
+            <br>
+            <span>Invitation</span>
+        </button>
+    </div>
+</div>
+
+<script>
+    function go(page) {
+      location.href = page;
+    }
+
+    function checkProgress() {
+      const memories = localStorage.getItem("memories");
+      const adorable = localStorage.getItem("adorable");
+      const chibi = localStorage.getItem("chibi");
+
+      if (memories && adorable && chibi) {
+        const btn = document.getElementById("inviteBtn");
+        btn.disabled = false;
+        btn.classList.remove("locked");
+      }
+    }
+
+    checkProgress();
+</script>
+
+</body>
+</html>
